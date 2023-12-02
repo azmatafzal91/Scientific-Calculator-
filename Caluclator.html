@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azmat's Calculator</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 100px 350px;
+      background-image: url('../img\ 4\ \(2\).jpeg');
+      /* background-size:auto; */
+    }
+
+    #title{
+      color: black;
+      text-decoration: underline;
+    }
+
+    #calculator {
+      width:fit-content;
+      display: flex;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 50%;
+      padding: 32px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #equalButton{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Scientific Calculator</h1>
+  <input type="text" id="display" readonly>
+<div id="calculator">
+  <div>
+  <button onclick="clearDisplay()">C</button>
+  <button onclick="appendCharacter('.')">.</button>
+  <button onclick="appendCharacter('0')">0</button>
+</div>
+<div>
+  <button onclick="appendCharacter('9')">9</button>
+  <button onclick="appendCharacter('6')">6</button>
+  <button onclick="appendCharacter('3')">3</button>
+</div>
+<div>
+
+  <button onclick="appendCharacter('8')">8</button>
+  <button onclick="appendCharacter('5')">5</button>
+  <button onclick="appendCharacter('2')">2</button>
+</div>
+<div>
+  <button onclick="appendCharacter('7')">7</button>
+  <button onclick="appendCharacter('4')">4</button>
+  <button onclick="appendCharacter('1')">1</button>
+</div>
+<div>
+  <button onclick="appendCharacter('+')">+</button>
+  <button onclick="appendCharacter('-')">-</button>
+  <button onclick="appendCharacter('%')">%</button>
+</div>
+<div>
+  <button onclick="appendCharacter('*')">*</button>
+  <button onclick="appendCharacter('/')">/</button>
+  <button id="equalButton" onclick="calculateResult()">=</button>
+</div>
+</div>
+<script>
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+
+  function appendCharacter(char) {
+    document.getElementById('display').value += char;
+  }
+
+  function calculateResult() {
+    try {
+      document.getElementById('display').value = eval(document.getElementById('display').value);
+    } catch (error) {
+      document.getElementById('display').value = 'Error';
+    }
+  }
+</script>
+
+</body>
+</html>
